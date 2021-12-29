@@ -17,4 +17,10 @@ start-api:
 	#sets PYTHONPATH to directory above, would do differently in production
 	cd flask_app && PYTHONPATH=".." python web.py
 
-all: install lint test
+create-docker-image:
+	docker build --tag=api .
+
+run-container:
+	docker run -p 8000:5001 api
+
+all: install lint test create-docker-image run-container
