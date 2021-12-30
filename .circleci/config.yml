@@ -23,16 +23,6 @@ jobs:
             . venv/bin/activate
             make lint
 
-      - run:
-          name: create docker image
-          command: |
-            make create-docker-image
-
-      - run:
-          name: run container
-          command: |
-            make run-container
-
 workflows:
   default:
     jobs:
